@@ -35,7 +35,7 @@ class Client_socket_RSA(Client_socket):
         while tries > 0:
             self.sock.send(self.public)
             logging.debug("send() public")
-            data = self.sock.recv(1024)
+            data = self.sock.recv(2048)
             if data.__eq__(self.public):
                 break
             else:
@@ -50,7 +50,7 @@ class Client_socket_RSA(Client_socket):
         while tries > 0:
             self.sock.send(Server_socket_RSA.field_need_send_public_key)
             logging.debug("send() to get server public key")
-            data = self.sock.recv(1024)
+            data = self.sock.recv(2048)
             if RSA_facade.isPublickKey(data):
                 self.server_public_key = data
                 self.handshake_ok = True
@@ -67,7 +67,7 @@ class Client_socket_RSA(Client_socket):
 
     def recieve_by_socket(self):
         logging.debug("send() client receive rsa")
-        data = self.sock.recv(1024)
+        data = self.sock.recv(2048)
         data=RSA_facade.decrypt(data,self.private)
         return data
 
