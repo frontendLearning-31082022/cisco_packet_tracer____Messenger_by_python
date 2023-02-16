@@ -106,5 +106,5 @@ class Client_socket:
 
     def recieve_by_socket(self):
         logging.debug("send() client wait receive")
-        data = self.sock.recv(1024)
+        data = self.sock.recv(2048)
         return data
