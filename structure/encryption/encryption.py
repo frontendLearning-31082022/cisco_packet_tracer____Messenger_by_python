@@ -3,7 +3,6 @@ import hashlib
 import Crypto.PublicKey.RSA
 from Crypto.PublicKey import RSA
 
-# https://devtut.github.io/python/sockets-and-message-encryption-decryption-between-client-and-server.html#client-side-implementation
 class RSA_struct:
     @staticmethod
     def step1_client_rsa():
